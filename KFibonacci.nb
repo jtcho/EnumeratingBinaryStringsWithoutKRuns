@@ -1,0 +1,193 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      6312,        185]
+NotebookOptionsPosition[      5875,        165]
+NotebookOutlinePosition[      6227,        181]
+CellTagsIndexPosition[      6184,        178]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"ClearAll", "[", "\"\<Global`*\>\"", "]"}], ";"}]], "Input",
+ CellChangeTimes->{3.680324584428149*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{"Generates", " ", "the", " ", "K"}], "-", 
+    RowBox[{"Fibonacci", " ", 
+     RowBox[{"matrix", "."}]}]}], " ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"GenFibMat", "[", "K_", "]"}], " ", ":=", " ", 
+     RowBox[{"Join", "[", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"Table", "[", 
+         RowBox[{"1", ",", 
+          RowBox[{"{", 
+           RowBox[{"i", ",", "1", ",", "K"}], "}"}]}], "]"}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Table", "[", 
+        RowBox[{
+         RowBox[{"Normal", "[", 
+          RowBox[{"SparseArray", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"i", "\[Rule]", "1"}], "}"}], ",", " ", "K", ",", " ", 
+            "0"}], "]"}], "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"i", ",", "1", ",", 
+           RowBox[{"K", "-", "1"}]}], "}"}]}], "]"}]}], "\[IndentingNewLine]",
+       "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"KFib", "[", 
+      RowBox[{"N_", ",", " ", "K_"}], "]"}], ":=", 
+     RowBox[{
+      RowBox[{"MatrixPower", "[", 
+       RowBox[{
+        RowBox[{"GenFibMat", "[", "K", "]"}], ",", "N"}], "]"}], ".", 
+      RowBox[{"Transpose", "[", 
+       RowBox[{"{", 
+        RowBox[{"Normal", "[", 
+         RowBox[{"SparseArray", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"1", "\[Rule]", "1"}], ",", 
+             RowBox[{"2", "\[Rule]", "1"}]}], "}"}], ",", "K"}], "]"}], "]"}],
+         "}"}], "]"}]}]}], ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.68032219573757*^9, 3.680322204382051*^9}, {
+  3.6803222445887957`*^9, 3.680322269538549*^9}, {3.680322364634715*^9, 
+  3.680322408687977*^9}, {3.6803225180996647`*^9, 3.680322572289637*^9}, {
+  3.680323448862443*^9, 3.680323463524416*^9}, {3.680324591532474*^9, 
+  3.6803245918034678`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Manipulate", "[", 
+   RowBox[{
+    RowBox[{"MatrixForm", "[", 
+     RowBox[{"GenFibMat", "[", "K", "]"}], "]"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"K", ",", " ", "1", ",", " ", "10", ",", "1"}], "}"}]}], "]"}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.680298874970498*^9, 3.680298876550716*^9}, {
+   3.68032349979837*^9, 3.680323565216763*^9}, {3.680324380260935*^9, 
+   3.6803243804994497`*^9}, 3.680324545836506*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Row", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"MatrixForm", "[", 
+       RowBox[{"GenFibMat", "[", "K", "]"}], "]"}], ",", 
+      RowBox[{"MatrixForm", "[", 
+       RowBox[{"KFib", "[", 
+        RowBox[{
+         RowBox[{"N", "-", "1"}], ",", "K"}], "]"}], "]"}], ",", "\"\<=\>\"", 
+      ",", 
+      RowBox[{"MatrixForm", "[", 
+       RowBox[{"KFib", "[", 
+        RowBox[{"N", ",", "K"}], "]"}], "]"}]}], "}"}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"N", ",", "1", ",", "10", ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"K", ",", "2", ",", "5", ",", "1"}], "}"}], ",", 
+   RowBox[{"Deployed", "\[Rule]", "True"}], ",", 
+   RowBox[{"ContentSize", "\[Rule]", "Full"}]}], "]"}]], "Input",
+ NumberMarks->False],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{K$$ = 2, N$$ = 1, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[N$$], 1, 10, 1}, {
+      Hold[K$$], 2, 5, 1}}, Typeset`size$$ = {
+    115., {11.634033203125, 17.365966796875}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = True, N$34592$$ = 0, 
+    K$34593$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {K$$ = 2, N$$ = 1}, 
+      "ControllerVariables" :> {
+        Hold[N$$, N$34592$$, 0], 
+        Hold[K$$, K$34593$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Row[{
+         MatrixForm[
+          $CellContext`GenFibMat[K$$]], 
+         MatrixForm[
+          $CellContext`KFib[N$$ - 1, K$$]], "=", 
+         MatrixForm[
+          $CellContext`KFib[N$$, K$$]]}], 
+      "Specifications" :> {{N$$, 1, 10, 1}, {K$$, 2, 5, 1}}, 
+      "Options" :> {Deployed -> True, ContentSize -> Full}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{600., {72., 78.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{{3.680324618194375*^9, 3.680324623529484*^9}, {
+  3.680324667508431*^9, 3.6803246751157227`*^9}}]
+}, Open  ]]
+},
+WindowSize->{720, 851},
+WindowMargins->{{Automatic, 0}, {Automatic, 0}},
+FrontEndVersion->"11.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (July 28, \
+2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 136, 3, 32, "Input"],
+Cell[697, 25, 1974, 53, 159, "Input"],
+Cell[2674, 80, 457, 11, 32, "Input"],
+Cell[CellGroupData[{
+Cell[3156, 95, 800, 22, 96, "Input"],
+Cell[3959, 119, 1900, 43, 201, "Output"]
+}, Open  ]]
+}
+]
+*)
+
